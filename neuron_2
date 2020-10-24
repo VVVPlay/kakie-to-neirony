@@ -1,0 +1,42 @@
+import numpy as np
+
+def sigm(x):
+    return 1 / (1 + np.exp(-x))
+    
+train_i = np.array([[0, 0, 1],
+                    [1, 1, 1],
+                    [1, 0, 1],
+                    [0, 1, 1]])
+                    
+train_o = np.array([[0, 1, 1, 0]]).T
+    
+np.random.seed(1)
+    
+weights = 2 * np.random.random((3, 1)) - 1
+
+print("Random weights: ")
+print(weights)
+
+for i in range(1000):
+    il = train_i
+    o = sigm(np.dot(il, weights))
+    err = train_o - o
+    a = np.dot(il.T, err * (o * (1 - o)))
+    weights += a
+    
+print("Weights: ")
+print(weights)  
+print("Res: ")
+print(o)
+
+
+u = int(input())
+p = int(input())        #Новые данные
+y = int(input())
+new_i = np.array([u, p, y])
+o = sigm(np.dot(new_i, weights))
+
+print("Res: ")
+print(o)
+
+#конец
