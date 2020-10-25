@@ -1,0 +1,25 @@
+import math
+import random
+
+w = []
+x = []
+
+def sigm(x):
+    return 1 / (1 + math.exp(-x))
+
+def sum(p_x, p_w):
+    res = 0
+    for i in range(len(p_x)):
+        res += p_x[i] * p_w[i]
+    return res
+
+def calc(p_w, p_x):
+    return sigm(sum(p_x, p_w))
+    
+for i in range(3):
+    w.append(random.random())
+    x.append(random.random())
+    
+print(w)
+print(x)
+print(calc(w, x))
