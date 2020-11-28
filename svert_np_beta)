@@ -1,0 +1,11 @@
+import numpy as np
+import numpy.random
+
+q = np.random.randint(0, 3, (4, 4))
+print(q)
+
+print("- - - - - - - - - - - - - -")
+
+w = np.random.randint(0, 2, (3, 3))
+print(w)
+
